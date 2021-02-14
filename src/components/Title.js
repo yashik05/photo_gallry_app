@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 
-
-class Title extends Component{
-    render() {
-        return <div>
+function Title() {
+    return (<div>
         <h1>photo farme</h1>
     </div>
+    );
 }
-}
+
 
 
 export default Title;

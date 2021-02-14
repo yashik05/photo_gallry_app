@@ -1,16 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Photo extends Component{
-    render() {
-        const frame = this.props.finalPhoto;
-        return <figure className="figure">
+import PropTypes from 'prop-types';
+
+function Photo(props) {
+     const frame = props.finalPhoto;
+    return (
+        <figure className="figure">
             <img className="photo" src={frame.imageLink} alt={frame.description} />
             <figcaption><p>{frame.description}</p></figcaption>
             <div className="button-container">
-                <button className="remove-button">Remove</button>
+                <button className="remove-button" onClick={
+                    () => {
+                        props.OnremovePhoto(frame)
+                    }
+                }>Remove</button>
             </div>
-            </figure>
-    }
+        </figure>
+
+    );
+    
+}
+
+Photo.propType ={
+    OnremovePhoto: PropTypes.func.isRequired,
+    finalPhoto: PropTypes.object.isRequired,
+    
 }
 
 export default Photo
