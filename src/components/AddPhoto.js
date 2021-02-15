@@ -10,7 +10,14 @@ class AddPhoto extends Component{
         event.preventDefault();
         const imagelink= (event.target.elements.link.value)
         const imagedescription= (event.target.elements.description.value)
-        
+        const photo = {
+            id: Number(new Date()),
+            description: imagedescription,
+            imageLink: imagelink,
+        }
+        if (imagedescription && imagelink) {
+            this.props.onAddPhoto(photo)
+        }
     }
     render() {
         return (

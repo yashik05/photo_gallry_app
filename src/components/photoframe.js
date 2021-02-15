@@ -9,7 +9,10 @@ function  Photoframe(props) {
         <div>
             <Link className="addIcon" to="/AddPhoto"></Link>
             <div className="photo-grid">
-                {props.PhotoPart.map((singlePhoto, index) => <Photo key={index} OnremovePhoto={props.OnremovePhoto} finalPhoto={singlePhoto} />)}
+                {props.PhotoPart.sort(function (x, y) {
+                    return y.id - x.id
+                })
+                    .map((singlePhoto, index) => <Photo key={index} OnremovePhoto={props.OnremovePhoto} finalPhoto={singlePhoto} />)}
             </div>
         </div>
     ); 
